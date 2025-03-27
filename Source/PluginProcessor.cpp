@@ -162,8 +162,8 @@ bool ArcaGainAudioProcessor::hasEditor() const
 
 juce::AudioProcessorEditor* ArcaGainAudioProcessor::createEditor()
 {
-    // return new PluginTemplateAudioProcessorEditor(*this);
-    return new juce::GenericAudioProcessorEditor(*this);
+    return new ArcaGainAudioProcessorEditor(*this);
+    // return new juce::GenericAudioProcessorEditor(*this);
 }
 
 
