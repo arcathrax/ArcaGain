@@ -2,7 +2,9 @@
 
 ArcaGainLookAndFeel::ArcaGainLookAndFeel()
 {
-    
+    setColour(juce::Slider::thumbColourId,juce::Colours::blue);
+    setColour(juce::Slider::trackColourId, juce::Colours::cyan);
+    setColour(juce::Slider::backgroundColourId, juce::Colours::grey);
 }
 
 void ArcaGainLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int width, int height,
@@ -11,6 +13,8 @@ void ArcaGainLookAndFeel::drawLinearSlider (juce::Graphics& g, int x, int y, int
                                        float maxSliderPos,
                                        const juce::Slider::SliderStyle style, juce::Slider& slider)
 {
+    slider.setVelocityModeParameters(10.0f, 1, 0.0f, true, juce::ModifierKeys::noModifiers);
+    slider.setVelocityBasedMode(true);
     slider.setSliderStyle(juce::Slider::LinearVertical);
     slider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 75, 30);
     
