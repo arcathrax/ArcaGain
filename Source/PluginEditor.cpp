@@ -3,11 +3,11 @@
 
 
 ArcaGainAudioProcessorEditor::ArcaGainAudioProcessorEditor (ArcaGainAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p),
-gainSliderAttachment(audioProcessor.apvts, "Gain", gainSlider)
+    : AudioProcessorEditor (&p), audioProcessor (p)
 {
-    addAndMakeVisible(gainSlider);
     
+    
+    addAndMakeVisible(gainSlider);
     setSize (400, 300);
 }
 
