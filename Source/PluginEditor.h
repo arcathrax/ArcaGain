@@ -17,6 +17,8 @@ public:
 private:
     ArcaGainAudioProcessor& audioProcessor;
     
+    juce::Label titleLabel;
+    
     juce::Slider gainSlider;
     juce::AudioProcessorValueTreeState::SliderAttachment gainSliderAttachment
     {

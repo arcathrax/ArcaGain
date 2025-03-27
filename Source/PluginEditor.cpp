@@ -5,8 +5,13 @@
 ArcaGainAudioProcessorEditor::ArcaGainAudioProcessorEditor (ArcaGainAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
+    titleLabel.setText("ArcaGain", juce::dontSendNotification);
+    titleLabel.setJustificationType(juce::Justification::centred);
     
+    gainSlider.setSliderStyle(juce::Slider::LinearVertical);
+    gainSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 75, 30);
     
+    addAndMakeVisible(titleLabel);
     addAndMakeVisible(gainSlider);
     setSize (400, 300);
 }
@@ -23,5 +28,10 @@ void ArcaGainAudioProcessorEditor::paint (juce::Graphics& g)
 
 void ArcaGainAudioProcessorEditor::resized()
 {
-    gainSlider.setBounds(getBounds());
+    auto fullBounds = getBounds();
+    auto titleBounds = fullBounds.removeFromTop(fullBounds.getHeight()*0.25);
+    auto sliderBounds = fullBounds;
+    
+    titleLabel.setBounds(titleBounds);
+    gainSlider.setBounds(sliderBounds);
 }
