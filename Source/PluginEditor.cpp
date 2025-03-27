@@ -3,8 +3,11 @@
 
 
 ArcaGainAudioProcessorEditor::ArcaGainAudioProcessorEditor (ArcaGainAudioProcessor& p)
-    : AudioProcessorEditor (&p), audioProcessor (p)
+    : AudioProcessorEditor (&p), audioProcessor (p),
+gainSliderAttachment(audioProcessor.apvts, "Gain", gainSlider)
 {
+    addAndMakeVisible(gainSlider);
+    
     setSize (400, 300);
 }
 
@@ -20,4 +23,5 @@ void ArcaGainAudioProcessorEditor::paint (juce::Graphics& g)
 
 void ArcaGainAudioProcessorEditor::resized()
 {
+    gainSlider.setBounds(getBounds());
 }

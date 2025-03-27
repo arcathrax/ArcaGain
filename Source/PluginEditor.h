@@ -16,6 +16,9 @@ public:
 
 private:
     ArcaGainAudioProcessor& audioProcessor;
+    
+    juce::Slider gainSlider;
+    juce::AudioProcessorValueTreeState::SliderAttachment gainSliderAttachment;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ArcaGainAudioProcessorEditor)
 };
