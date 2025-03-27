@@ -3,11 +3,11 @@
 #include <JuceHeader.h>
 #include "Parameters.h"
 
-class PluginTemplateAudioProcessor  : public juce::AudioProcessor
+class ArcaGainAudioProcessor  : public juce::AudioProcessor
 {
 public:
-    PluginTemplateAudioProcessor();
-    ~PluginTemplateAudioProcessor() override;
+    ArcaGainAudioProcessor();
+    ~ArcaGainAudioProcessor() override;
 
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -60,5 +60,5 @@ private:
     };
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PluginTemplateAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ArcaGainAudioProcessor)
 };

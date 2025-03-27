@@ -2,7 +2,7 @@
 #include "PluginEditor.h"
 
 
-PluginTemplateAudioProcessor::PluginTemplateAudioProcessor()
+ArcaGainAudioProcessor::ArcaGainAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
@@ -16,17 +16,17 @@ PluginTemplateAudioProcessor::PluginTemplateAudioProcessor()
 {
 }
 
-PluginTemplateAudioProcessor::~PluginTemplateAudioProcessor()
+ArcaGainAudioProcessor::~ArcaGainAudioProcessor()
 {
 }
 
 
-const juce::String PluginTemplateAudioProcessor::getName() const
+const juce::String ArcaGainAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool PluginTemplateAudioProcessor::acceptsMidi() const
+bool ArcaGainAudioProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -35,7 +35,7 @@ bool PluginTemplateAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool PluginTemplateAudioProcessor::producesMidi() const
+bool ArcaGainAudioProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -44,7 +44,7 @@ bool PluginTemplateAudioProcessor::producesMidi() const
    #endif
 }
 
-bool PluginTemplateAudioProcessor::isMidiEffect() const
+bool ArcaGainAudioProcessor::isMidiEffect() const
 {
    #if JucePlugin_IsMidiEffect
     return true;
@@ -53,37 +53,37 @@ bool PluginTemplateAudioProcessor::isMidiEffect() const
    #endif
 }
 
-double PluginTemplateAudioProcessor::getTailLengthSeconds() const
+double ArcaGainAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int PluginTemplateAudioProcessor::getNumPrograms()
+int ArcaGainAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int PluginTemplateAudioProcessor::getCurrentProgram()
+int ArcaGainAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void PluginTemplateAudioProcessor::setCurrentProgram (int index)
+void ArcaGainAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const juce::String PluginTemplateAudioProcessor::getProgramName (int index)
+const juce::String ArcaGainAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void PluginTemplateAudioProcessor::changeProgramName (int index, const juce::String& newName)
+void ArcaGainAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
 
-void PluginTemplateAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void ArcaGainAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     juce::dsp::ProcessSpec spec;
 
@@ -95,14 +95,14 @@ void PluginTemplateAudioProcessor::prepareToPlay (double sampleRate, int samples
     rightChain.prepare(spec);
 }
 
-void PluginTemplateAudioProcessor::releaseResources()
+void ArcaGainAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool PluginTemplateAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+bool ArcaGainAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
     juce::ignoreUnused (layouts);
@@ -127,7 +127,7 @@ bool PluginTemplateAudioProcessor::isBusesLayoutSupported (const BusesLayout& la
 }
 #endif
 
-void PluginTemplateAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void ArcaGainAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -155,25 +155,25 @@ void PluginTemplateAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 }
 
 
-bool PluginTemplateAudioProcessor::hasEditor() const
+bool ArcaGainAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-juce::AudioProcessorEditor* PluginTemplateAudioProcessor::createEditor()
+juce::AudioProcessorEditor* ArcaGainAudioProcessor::createEditor()
 {
     // return new PluginTemplateAudioProcessorEditor(*this);
     return new juce::GenericAudioProcessorEditor(*this);
 }
 
 
-void PluginTemplateAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
+void ArcaGainAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     juce::MemoryOutputStream mos(destData, true);
     apvts.state.writeToStream(mos);
 }
 
-void PluginTemplateAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+void ArcaGainAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     auto tree = juce::ValueTree::readFromData(data, sizeInBytes);
     if (tree.isValid())
@@ -185,5 +185,5 @@ void PluginTemplateAudioProcessor::setStateInformation (const void* data, int si
 //==============================================================================
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new PluginTemplateAudioProcessor();
+    return new ArcaGainAudioProcessor();
 }
