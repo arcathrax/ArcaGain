@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="KoPgOA" name="PluginTemplate" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="KoPgOA" name="ArcaGain" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" version="0.0"
               companyName="arcasoft" companyWebsite="www.arcathrax.github.io"
               companyEmail="arcathrax@proton.me" pluginManufacturerCode="Arca"
               cppLanguageStandard="20">
-  <MAINGROUP id="PsYr69" name="PluginTemplate">
+  <MAINGROUP id="PsYr69" name="ArcaGain">
     <GROUP id="{6D2800E9-FD34-2B98-E4F3-587630062054}" name="Source">
       <FILE id="a2vRXE" name="Parameters.cpp" compile="1" resource="0" file="Source/Parameters.cpp"/>
       <FILE id="tyyzc1" name="Parameters.h" compile="0" resource="0" file="Source/Parameters.h"/>
@@ -38,9 +38,9 @@
   <EXPORTFORMATS>
     <VS2022 targetFolder="Builds/VisualStudio2022">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="PluginTemplate" enablePluginBinaryCopyStep="1"
+        <CONFIGURATION isDebug="1" name="Debug" targetName="ArcaGain" enablePluginBinaryCopyStep="1"
                        vst3BinaryLocation="C:\Program Files\Common Files\VST3"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="PluginTemplate" enablePluginBinaryCopyStep="1"
+        <CONFIGURATION isDebug="0" name="Release" targetName="ArcaGain" enablePluginBinaryCopyStep="1"
                        vst3BinaryLocation="C:\Program Files\Common Files\VST3"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -61,8 +61,8 @@
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="PluginTemplate"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="PluginTemplate"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="ArcaGain"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="ArcaGain"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../../Program Files/JUCE/modules"/>
