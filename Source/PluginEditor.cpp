@@ -8,8 +8,7 @@ ArcaGainAudioProcessorEditor::ArcaGainAudioProcessorEditor (ArcaGainAudioProcess
     titleLabel.setText("ArcaGain", juce::dontSendNotification);
     titleLabel.setJustificationType(juce::Justification::centred);
     
-    gainSlider.setSliderStyle(juce::Slider::LinearVertical);
-    gainSlider.setTextBoxStyle(juce::Slider::TextBoxBelow, true, 75, 30);
+    gainSlider.setLookAndFeel(&lookAndFeel);
     
     addAndMakeVisible(titleLabel);
     addAndMakeVisible(gainSlider);

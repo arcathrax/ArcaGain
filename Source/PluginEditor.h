@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
+#include "GUI/ArcaGainLookAndFeel.h"
 
 
 class ArcaGainAudioProcessorEditor  : public juce::AudioProcessorEditor
@@ -15,6 +16,7 @@ public:
     void resized() override;
 
 private:
+    ArcaGainLookAndFeel lookAndFeel;
     ArcaGainAudioProcessor& audioProcessor;
     
     juce::Label titleLabel;
